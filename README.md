@@ -1,19 +1,20 @@
-# Projeto de Automacao de Backup de Rede: Oxidized + Zabbix + EVE-NG
+# Projeto de Automação de Backup de Rede: Oxidized + Zabbix + EVE-NG
 
 ## Resumo Executivo
-Este repositorio contem a documentacao tecnica e scripts para a implementacao de um sistema automatizado de backup e versionamento de configuracoes de ativos de rede. A solucao utiliza o **Oxidized** como motor de coleta, **Git** para versionamento historico e **Zabbix** como fonte de inventario (Source of Truth).
+Este repositório contém a documentação técnica e scripts para a implementação de um sistema automatizado de backup e versionamento de configurações de ativos de rede. A solução utiliza o **Oxidized** como motor de coleta, **Git** para versionamento histórico e **Zabbix** como fonte de inventário (Source of Truth) e monitoramento de saúde.
 
-O ambiente de validacao foi construido utilizando **EVE-NG** simulando switches Cisco IOS (2960).
+O ambiente de validação foi construído utilizando **EVE-NG** simulando switches Cisco IOS (2960).
 
-## Estrutura da Documentacao
+## Estrutura da Documentação
 
-A documentacao esta dividida nos seguintes modulos dentro do diretorio `docs/`:
+A documentação está dividida nos seguintes módulos dentro do diretório `docs/`:
 
-1. **[Arquitetura](docs/arquitetura.md)**: Visao geral dos componentes, fluxo de dados e design da solucao.
-2. **[Instalacao](docs/instalacao.md)**: Requisitos de SO, dependencias, instalacao das Gems Ruby e configuracao do servico Systemd.
-3. **[Configuracao Oxidized](docs/configuracao-oxidized.md)**: Detalhamento do arquivo `config`, parametros de coleta e preparacao dos ativos Cisco IOS.
-4. **[Integracao Zabbix](docs/integracao-zabbix.md)**: Metodologia para tornar o inventario dinamico via API do Zabbix.
-5. **[Troubleshooting](docs/troubleshooting.md)**: Guia de resolucao de problemas comuns (SSH, Permissoes, PID).
+1. **[Arquitetura](docs/arquitetura.md)**: Visão geral dos componentes, fluxo de dados e design da solução.
+2. **[Instalação](docs/instalacao.md)**: Requisitos de SO, dependências, instalação das Gems Ruby e configuração do serviço Systemd.
+3. **[Configuração Oxidized](docs/configuracao-oxidized.md)**: Detalhamento do arquivo `config`, parâmetros de coleta e preparação dos ativos Cisco IOS.
+4. **[Integração Zabbix](docs/integracao-zabbix.md)**: Metodologia para tornar o inventário dinâmico via API do Zabbix.
+5. **[Monitoramento de Saúde](docs/monitoramento-zabbix.md)**: Configuração de alertas no Zabbix para falhas de backup.
+6. **[Troubleshooting](docs/troubleshooting.md)**: Guia de resolução de problemas comuns (SSH, Permissões, PID).
 
 ## Scripts
-O diretorio `scripts/` contem exemplos de integracao para consumo da API do Zabbix.
+O diretório `scripts/` contém exemplos de integração para consumo da API do Zabbix.
