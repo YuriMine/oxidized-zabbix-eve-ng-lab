@@ -8,7 +8,6 @@
 ## 2. Preparacao do Ambiente
 E altamente recomendado criar um usuario dedicado para o servico, evitando a execucao como `root`.
 
-```bash
 # Criacao do usuario
 sudo useradd -m -s /bin/bash oxidized
 
