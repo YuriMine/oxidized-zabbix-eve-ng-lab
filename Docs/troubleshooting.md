@@ -17,7 +17,6 @@ Sintoma: A server is already running. Check /pid/oxidized.pid.
 
 Solução:
 
-bash
 rm /home/oxidized/.config/oxidized/pid/oxidized.pid
 systemctl start oxidized
 
@@ -26,7 +25,6 @@ Sintoma: Errno::EACCES: Permission denied.
 
 Solução: Garantir recursividade de dono para o usuário do serviço.
 
-bash
 sudo chown -R oxidized:oxidized /home/oxidized/.config/
 ## 4. Debugging
 Para visualizar exatamente o que está acontecendo durante a conexão (troubleshooting avançado):
@@ -35,7 +33,6 @@ Pare o serviço: systemctl stop oxidized
 
 Execute manualmente com debug: 
 
-bash
 oxidized --debug
 
 Analise a saída no terminal para identificar onde a coleta trava (login, prompt, comando específico).
