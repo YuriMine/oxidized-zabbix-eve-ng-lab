@@ -1,8 +1,3 @@
----
-
-### `docs/integracao-zabbix.md`
-
-```markdown
 # Integração Dinâmica: Zabbix como Fonte de Verdade
 
 ## 1. Conceito
