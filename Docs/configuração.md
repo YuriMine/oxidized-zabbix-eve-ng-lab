@@ -8,8 +8,6 @@ Execute o comando `oxidized` uma vez manualmente para gerar a estrutura inicial 
 Caminho: `/home/oxidized/.config/oxidized/config`
 Abaixo, a configuracao otimizada para ambiente Cisco IOS.
 
-```yaml
----
 username: admin           # Credencial padrao SSH
 password: admin123        # Senha padrao
 enable: admin123          # Senha de Enable
@@ -48,3 +46,31 @@ output:
     user: Oxidized Automation
     email: oxidized@lab.local
     repo: /home/oxidized/.config/oxidized/network_configs.git
+
+# 3. Arquivo de Inventario (router.db)
+Utilizado quando a integracao automatica com Zabbix nao esta ativa. Formato: HOSTNAME:IP:DRIVER
+
+
+SW-CORE-01:192.168.10.1:ios
+SW-ACC-01:192.168.10.2:ios
+SW-ACC-02:192.168.10.3:ios
+
+# 4. Preparacao dos Switches (Cisco IOS)
+Para o correto funcionamento, o switch deve aceitar conexoes SSH nao-interativas.
+
+Snippet de código
+
+! Configuracao Global
+hostname SW-LAB-01
+ip domain-name lab.local
+crypto key generate rsa modulus 2048
+ip ssh version 2
+
+! Usuario com privilegio maximo
+username admin privilege 15 secret admin123
+
+! Configuracao de linhas VTY
+line vty 0 4
+ transport input ssh
+ login local
+!
