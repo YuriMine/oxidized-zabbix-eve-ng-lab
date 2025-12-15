@@ -12,20 +12,18 @@ E altamente recomendado criar um usuario dedicado para o servico, evitando a exe
 # Criacao do usuario
 sudo useradd -m -s /bin/bash oxidized
 
-# Atualizacao e Dependencias do Sistema
+## 3. Atualizacao e Dependencias do Sistema
 sudo apt update
 sudo apt install -y git ruby ruby-dev libsqlite3-dev libssl-dev libssh2-1-dev cmake make curl pkg-config libicu-dev zlib1g-dev g++
-3. Instalacao do Oxidized
+
+## 4. Instalacao do Oxidized
 A instalacao e feita via gerenciador de pacotes Ruby (Gems).
 
-Bash
-
-# Instalar componentes principais
+## 5. Instalar componentes principais
 sudo gem install oxidized oxidized-web oxidized-script
-4. Configuracao do Servico (Systemd)
-Para garantir que o Oxidized inicie automaticamente e reinicie em caso de falhas. Crie o arquivo /etc/systemd/system/oxidized.service:
 
-Ini, TOML
+#Configuracao do Servico (Systemd)
+Para garantir que o Oxidized inicie automaticamente e reinicie em caso de falhas. Crie o arquivo /etc/systemd/system/oxidized.service:
 
 [Unit]
 Description=Oxidized Network Configuration Backup
@@ -43,8 +41,6 @@ Environment="OXIDIZED_HOME=/home/oxidized/.config/oxidized"
 [Install]
 WantedBy=multi-user.target
 Ativacao do servico:
-
-Bash
 
 sudo systemctl daemon-reload
 sudo systemctl enable oxidized
