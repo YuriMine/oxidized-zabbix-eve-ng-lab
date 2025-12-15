@@ -9,12 +9,12 @@ O ambiente de validação foi construído utilizando **EVE-NG** simulando switch
 
 A documentação está dividida nos seguintes módulos dentro do diretório `docs/`:
 
-1. **[Arquitetura](docs/arquitetura.md)**: Visão geral dos componentes, fluxo de dados e design da solução.
-2. **[Instalação](docs/instalacao.md)**: Requisitos de SO, dependências, instalação das Gems Ruby e configuração do serviço Systemd.
-3. **[Configuração Oxidized](docs/configuracao-oxidized.md)**: Detalhamento do arquivo `config`, parâmetros de coleta e preparação dos ativos Cisco IOS.
-4. **[Integração Zabbix](docs/integracao-zabbix.md)**: Metodologia para tornar o inventário dinâmico via API do Zabbix.
-5. **[Monitoramento de Saúde](docs/monitoramento-zabbix.md)**: Configuração de alertas no Zabbix para falhas de backup.
-6. **[Troubleshooting](docs/troubleshooting.md)**: Guia de resolução de problemas comuns (SSH, Permissões, PID).
+1. **[Arquitetura](Docs/arquitetura.md)**: Visão geral dos componentes, fluxo de dados e design da solução.
+2. **[Instalação](Docs/instalacao.md)**: Requisitos de SO, dependências, instalação das Gems Ruby e configuração do serviço Systemd.
+3. **[Configuração Oxidized](Docs/configuracao.md)**: Detalhamento do arquivo `config`, parâmetros de coleta e preparação dos ativos Cisco IOS.
+4. **[Integração Zabbix](Docs/integracao-zabbix.md)**: Metodologia para tornar o inventário dinâmico via API do Zabbix.
+5. **[Monitoramento de Saúde](Docs/monitoramento-zabbix.md)**: Configuração de alertas no Zabbix para falhas de backup.
+6. **[Troubleshooting](Docs/troubleshooting.md)**: Guia de resolução de problemas comuns (SSH, Permissões, PID).
 
 ## Scripts
 O diretório `scripts/` contém exemplos de integração para consumo da API do Zabbix.
