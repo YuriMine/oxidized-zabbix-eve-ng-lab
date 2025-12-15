@@ -6,10 +6,11 @@ Este documento descreve como configurar o Zabbix para consumir a API REST do Oxi
 
 ## 2. Pré-requisitos
 Certifique-se de que a API REST está habilitada no arquivo `config` do Oxidized:
-`rest: 0.0.0.0:8888`
+```yaml
+rest: 0.0.0.0:8888
+```
 
 ## 3. Configuração no Zabbix (Template LLD)
-
 A estratégia utiliza **LLD (Low-Level Discovery)** com **HTTP Agent**.
 
 ### 3.1. Item Mestre (HTTP Agent)
@@ -21,19 +22,30 @@ Este item baixa o JSON completo uma única vez.
 ### 3.2. Regra de Descoberta (LLD Rule)
 Lê o JSON do Item Mestre e descobre cada switch.
 * **Master item:** Oxidized: Get Nodes JSON
-* **LLD Macros:** `{#NODE_NAME}` → `$.name`, `{#NODE_STATUS}` → `$.last.status`
+* **LLD Macros:**
+  * `{#NODE_NAME}` → `$.name`
+  * `{#NODE_STATUS}` → `$.last.status`
 
 ### 3.3. Protótipos de Itens e Triggers
 
 #### Item: Status do Último Backup
 * **Key:** `oxidized.node.status[{#NODE_NAME}]`
-* **Preprocessing:** JSONPath `$.[?(@.name=='{#NODE_NAME}')].last.status.first()`
+* **Preprocessing:**
+```text
+JSONPath: $.[?(@.name=='{#NODE_NAME}')].last.status.first()
+```
 
 #### Trigger: Falha de Backup
-* **Expression:** `last() <> "success"`
-* **Severity:** High
 * **Nome:** Backup falhou para o host {#NODE_NAME}
+* **Severity:** High
+* **Expression:**
+```text
+last() <> "success"
+```
 
 #### Trigger: Backup Obsoleto (>24h)
-* **Expression:** `fuzzytime(..., 86400) = 0`
 * **Severity:** Warning
+* **Expression:**
+```text
+fuzzytime(..., 86400) = 0
+```
